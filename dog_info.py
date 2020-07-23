@@ -12,7 +12,7 @@ timefile=open('./time.txt','r')
 dog_time=int(timefile.read())
 timefile.close()
 
-SKEY=''
+SKEY='SCU106687Tf850c572be3223c3c7183ee93996bc1d5f1780e4eb6cf'
 tiddog=time.strftime("%Y-%m-%d", time.localtime())
 
 # class ()
@@ -78,7 +78,8 @@ bitime=0
 outstr = ''
 for dog_item in conf_cont:
     dog_sp = dog_item.split(' ')
-    gdog = get_info(dog_sp[0])
+    gdog = get_info(dog_sp[0].strip())
+    # print(gdog)
     dog_pa = pre_dog_info(gdog[0], dog_sp[0])
     if len(dog_sp) == 2:
         dog_pa.cal(dog_sp[1].strip())
@@ -90,7 +91,8 @@ if dog_time<bitime:
     ff=open('./time.txt','w')
     ff.write(str(bitime))
     ff.close()
+    send_dog(outstr+"\n\n"+tiddog,tiddog+'证券汇报')
 else:
     print('不需要')
-send_dog(outstr,tiddog+'证券汇报')
+# send_dog(outstr,tiddog+'证券汇报')
 print(outstr)
