@@ -1,5 +1,6 @@
 FROM python
-COPY requirement.txt /req/
+COPY requirements.txt /req/
+WORKDIR /req
+RUN pip install -r requirements.txt
 WORKDIR /app
-RUN pip install -r /req/requirement.txt
 # CMD python dog_info.py
