@@ -12,7 +12,7 @@ timefile=open('./time.txt','r')
 dog_time=int(timefile.read())
 timefile.close()
 
-SKEY='SCU106687Tf850c572be3223c3c7183ee93996bc1d5f1780e4eb6cf'
+SKEY=''
 tiddog=time.strftime("%Y-%m-%d", time.localtime())
 
 # class ()
